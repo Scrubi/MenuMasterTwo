@@ -24,8 +24,8 @@ namespace MenuMasterLibrary
         public Dish()
         {
         }
-
-        public Dish CreateDish()
+        
+        public static Dish CreateDish()
         {
             
 

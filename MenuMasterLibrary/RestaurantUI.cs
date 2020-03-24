@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MenuMasterLibrary
 {
-    class RestaurantUI
+    public class RestaurantUI
     {
 
         public Dish dish;
@@ -14,7 +14,7 @@ namespace MenuMasterLibrary
         }
 
        
-
+        
         public RestaurantUI(Dish dish)
         {
             this.dish = dish;
@@ -52,6 +52,7 @@ namespace MenuMasterLibrary
                   
                     break;
                 case 3:
+                    Dish dish = Dish.CreateDish();
                     dish.AddNewDishToList();
                     Console.ReadKey();
                     break;
