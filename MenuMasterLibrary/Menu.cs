@@ -15,11 +15,7 @@ namespace MenuMasterLibrary
         {
         }
 
-        public void FillMenuWithData()
-        {
-
-
-        }
+        
 
         public void PrintSaladList()
         {
@@ -33,9 +29,7 @@ namespace MenuMasterLibrary
             for (int i = 0; i < this.salads.Count; i++)
             {
                 Console.WriteLine("---------------------------");
-                Console.WriteLine($"1. Salads");
-                Console.WriteLine("---------------------------");
-                Console.WriteLine($"{this.salads[i].name} - {this.salads[i].price}");
+               
             }
         }
 
