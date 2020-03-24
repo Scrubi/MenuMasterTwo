@@ -4,13 +4,20 @@ using System.Text;
 
 namespace MenuMasterLibrary
 {
-    public class RestaurantUI
+    class RestaurantUI
     {
-        private Menu mn;
 
-        public RestaurantUI(Menu mn)
+        public Dish dish;
+
+        public RestaurantUI()
         {
-            this.mn = mn;
+        }
+
+       
+
+        public RestaurantUI(Dish dish)
+        {
+            this.dish = dish;
         }
 
         public void InitializeMainMenu()
@@ -25,7 +32,9 @@ namespace MenuMasterLibrary
         private bool ShowMainMenu()
         {
             Console.Clear();
+            Console.WriteLine("--------------");
             Console.WriteLine("Restaurant Öl");
+            Console.WriteLine("--------------");
             Console.WriteLine("1. Add Menu. ");
             Console.WriteLine("2. Show Menu. ");
             Console.WriteLine("3. Add new dish. ");
@@ -37,13 +46,14 @@ namespace MenuMasterLibrary
             switch (selected)
             {
                 case 1:
-
+                    
                     break;
                 case 2:
-                    mn.PrintSaladList();
+                  
                     break;
                 case 3:
-
+                    dish.AddNewDishToList();
+                    Console.ReadKey();
                     break;
 
                 case 0:

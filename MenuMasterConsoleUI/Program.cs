@@ -7,10 +7,9 @@ namespace MenuMasterConsoleUI
     {
         static void Main(string[] args)
         {
-            Menu mn = new Menu();
-            mn.FillMenuWithData();
+            
 
-            RestaurantUI mainMenu = new RestaurantUI(mn);
+            RestaurantUI mainMenu = new RestaurantUI();
             mainMenu.InitializeMainMenu();
         }
     }

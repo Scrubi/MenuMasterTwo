@@ -6,34 +6,29 @@ namespace MenuMasterLibrary
 {
     public class Menu
     {
-        public List<Salad> salads = new List<Salad>();
-        public List<Pizza> pizzas = new List<Pizza>();
-
-
+        List<Dish> dishes = new List<Dish>();
 
         public Menu()
         {
         }
 
-        
-
-        public void PrintSaladList()
+        public void ShowList()
         {
-            //if the list is empty -> return
-            if (this.salads.Count == 0)
-            {
-                Console.WriteLine("There are no menus yet.");
-                return;
-            }
+            
+                if (this.dishes.Count == 0)
+                {
+                    Console.WriteLine("Menu is empty.");
+                    return;
+                }
 
-            for (int i = 0; i < this.salads.Count; i++)
-            {
-                Console.WriteLine("---------------------------");
-               
-            }
+                for (int i = 0; i < this.dishes.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}.{this.dishes[i].name}  {this.dishes[i].price}€  {this.dishes[i].description}");
+                }
+            
+
+
         }
-
-       
     }
 
    
