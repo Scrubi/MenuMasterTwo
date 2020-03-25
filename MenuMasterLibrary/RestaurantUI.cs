@@ -7,13 +7,15 @@ namespace MenuMasterLibrary
     public class RestaurantUI
     {
 
-        public Dish dish;
-        public Entree entree;
-        public MainCourse mainCourse;
-        public Dessert dessert;
-     
+       
+        public Menu menu;
         public RestaurantUI()
         {
+        }
+
+        public RestaurantUI(Menu menu) 
+        {
+            this.menu = menu;
         }
 
         
@@ -32,7 +34,7 @@ namespace MenuMasterLibrary
             Console.WriteLine("--------------");
             Console.WriteLine("Restaurant Öl");
             Console.WriteLine("--------------");
-            Console.WriteLine("1. Add Menu. ");
+            Console.WriteLine("1. Add Menu. //under construction ");
             Console.WriteLine("2. Show Menu. ");
             Console.WriteLine("3. Add new dish. ");
 
@@ -46,7 +48,12 @@ namespace MenuMasterLibrary
 
                     break;
                 case 2:
-
+                    
+                    menu.ShowEntreeList();
+                    menu.ShowMainCourseList();
+                    menu.ShowDessertList();
+                    menu.ShowDishesList();
+                    Console.ReadKey();
                     break;
                 case 3:
                     Console.WriteLine("\n Select Category for this dish:");
@@ -59,24 +66,24 @@ namespace MenuMasterLibrary
                     switch (select)
                     {
                         case 1:
-                            Entree entree = new Entree();
-                            entree.AddNewEntreeToList();
+                            //Entree entree = new Entree();
+                            menu.AddNewEntreeToList();
                             Console.ReadKey();
                             break;
 
                         case 2:
-                            MainCourse mainCourse = new MainCourse();
-                            mainCourse.AddNewMainCourseToList();
+                            //MainCourse mainCourse = new MainCourse();
+                            menu.AddNewMainCourseToList();
                             Console.ReadKey();
                             break;
                         case 3:
-                            Dessert dessert = new Dessert();
-                            dessert.AddNewDessertToList();
+                            //Dessert dessert = new Dessert();
+                            menu.AddNewDessertToList();
                             Console.ReadKey();
                             break;
                         case 4:
-                            Dish dish = new Dish();
-                            dish.AddNewDishToList();
+                            //Dish dish = new Dish();
+                            menu.AddNewDishToList();
                             Console.ReadKey();
                             break;
                     }

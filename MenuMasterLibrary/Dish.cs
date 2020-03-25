@@ -12,7 +12,7 @@ namespace MenuMasterLibrary
 
        
 
-        public List<Dish> dishes = new List<Dish>();
+       
 
         public Dish(string name, double price, string description)
         {
@@ -25,27 +25,7 @@ namespace MenuMasterLibrary
         {
         }
         
-        public static Dish CreateDish()
-        {
-            Console.WriteLine("Name of dish to be added:");
-            string name = Console.ReadLine();
-            Console.WriteLine("Price of dish to be added:");
-            double price = int.Parse(Console.ReadLine());
-            Console.WriteLine("Description of dish to be added:");
-            string description = Console.ReadLine();
-
-            Dish dish = new Dish(name, price, description);
-            return dish;
-          
-        }
-
-      
-
-        public void AddNewDishToList()
-        {
-            Dish toAdd = Dish.CreateDish();
-            this.dishes.Add(toAdd);
-        }
+        
 
     }
     
