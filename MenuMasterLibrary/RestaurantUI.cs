@@ -8,18 +8,15 @@ namespace MenuMasterLibrary
     {
 
         public Dish dish;
-
+        public Entree entree;
+        public MainCourse mainCourse;
+        public Dessert dessert;
+     
         public RestaurantUI()
         {
         }
 
-       
         
-        public RestaurantUI(Dish dish)
-        {
-            this.dish = dish;
-        }
-
         public void InitializeMainMenu()
         {
             bool showMenu = true;
@@ -46,29 +43,54 @@ namespace MenuMasterLibrary
             switch (selected)
             {
                 case 1:
-                    
+
                     break;
                 case 2:
-                  
+
                     break;
                 case 3:
-                    Dish dish = Dish.CreateDish();
-                    dish.AddNewDishToList();
-                    Console.ReadKey();
+                    Console.WriteLine("\n Select Category for this dish:");
+                    Console.WriteLine("1. Entrees");
+                    Console.WriteLine("2. Main Course");
+                    Console.WriteLine("3. Dessert");
+                    Console.WriteLine("4. No Category");
+                    int select = int.Parse(Console.ReadLine());
+                    Console.Clear();
+                    switch (select)
+                    {
+                        case 1:
+                            Entree entree = new Entree();
+                            entree.AddNewEntreeToList();
+                            Console.ReadKey();
+                            break;
+
+                        case 2:
+                            MainCourse mainCourse = new MainCourse();
+                            mainCourse.AddNewMainCourseToList();
+                            Console.ReadKey();
+                            break;
+                        case 3:
+                            Dessert dessert = new Dessert();
+                            dessert.AddNewDessertToList();
+                            Console.ReadKey();
+                            break;
+                        case 4:
+                            Dish dish = new Dish();
+                            dish.AddNewDishToList();
+                            Console.ReadKey();
+                            break;
+                    }
                     break;
 
                 case 0:
                     return false;
-                default:
-                    Console.Clear();
-                    return true;
             }
+                    
             Console.WriteLine("\nPress a key to continue...");
             Console.ReadKey();
             return true;
 
         }
-
     }
 }
 

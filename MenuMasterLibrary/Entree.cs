@@ -4,28 +4,25 @@ using System.Text;
 
 namespace MenuMasterLibrary
 {
-    public class Dish
+    public class Entree
     {
+        public List<Entree> entrees = new List<Entree>();
         public string name;
-        public double price;
         public string description;
+        public double price;
+        public Entree()
+        {
 
-       
+        }
 
-        public List<Dish> dishes = new List<Dish>();
-
-        public Dish(string name, double price, string description)
+        public Entree(string name, double price, string description)
         {
             this.name = name;
             this.price = price;
             this.description = description;
         }
 
-        public Dish()
-        {
-        }
-        
-        public static Dish CreateDish()
+        public static Entree CreateEntree()
         {
             Console.WriteLine("Name of dish to be added:");
             string name = Console.ReadLine();
@@ -34,19 +31,14 @@ namespace MenuMasterLibrary
             Console.WriteLine("Description of dish to be added:");
             string description = Console.ReadLine();
 
-            Dish dish = new Dish(name, price, description);
-            return dish;
-          
+            Entree entree = new Entree(name, price, description);
+            return entree;
         }
 
-      
-
-        public void AddNewDishToList()
+        public void AddNewEntreeToList()
         {
-            Dish toAdd = Dish.CreateDish();
-            this.dishes.Add(toAdd);
+            Entree toAdd = Entree.CreateEntree();
+            this.entrees.Add(toAdd);
         }
-
     }
-    
 }
