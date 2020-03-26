@@ -22,23 +22,6 @@ namespace MenuMasterLibrary
             this.price = price;
             this.description = description;
         }
-        public static MainCourse CreateMainCourse()
-        {
-            Console.WriteLine("Name of dish to be added:");
-            string name = Console.ReadLine();
-            Console.WriteLine("Price of dish to be added:");
-            double price = int.Parse(Console.ReadLine());
-            Console.WriteLine("Description of dish to be added:");
-            string description = Console.ReadLine();
-
-            MainCourse maincourse = new MainCourse(name, price, description);
-            return maincourse;
-        }
-
-        public void AddNewMainCourseToList()
-        {
-            MainCourse toAdd = MainCourse.CreateMainCourse();
-            this.mainCourses.Add(toAdd);
-        }
+     
     }
 }

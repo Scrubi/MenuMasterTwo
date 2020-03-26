@@ -11,9 +11,21 @@ namespace MenuMasterLibrary
         List<Dessert> desserts = new List<Dessert>();
         List<Dish> dishes = new List<Dish>();
 
-        public Menu()
+        //Test data for Menu start
+        public void FillMenusWithTestData()
         {
+            this.dishes.Add(new Dish("Sushi", 6, "Chef's special sushi with mild wasabi paste"));
+            this.dishes.Add(new Dish("Tonkotsu Ramen", 8, "Our Spicy Tonkotsu Ramen strikes a perfect balance between heat and flavor"));
+            this.entrees.Add(new Entree("Nachos", 2, "Bowl of delicious nachos with cheese dip"));
+            this.entrees.Add(new Entree("Cheese sticks", 3, "Small basket of 8 cheese sticks that burst with flavor"));
+            this.mainCourses.Add(new MainCourse("Chef's Juicy BBQ Burger", 12.5, "This award winning burger will blow your mind and your taste buds will be throughly satisfied"));
+            this.mainCourses.Add(new MainCourse("Lean Steak", 13.95, "Steak drizzled in our special spiced oil, topped with spring onions and caramellized lager sauce"));
+            this.desserts.Add(new Dessert("Vanilla Ice Cream", 6.5, "Classic homemade vanilla ice cream with topping of your choice (strawberries, blueberries, chocolate melt)"));
+            this.desserts.Add(new Dessert("Powder sugar coated Brownie", 8.5, "This Brownie literally melts in your mouth giving you instant sweetness and satisfaction"));
+            
         }
+
+        //Test data for Menu endpoint
 
         //Dish add (Uncategorized) start
 
@@ -42,19 +54,28 @@ namespace MenuMasterLibrary
         //Show list Dish (Uncategorized) start
         public void ShowDishesList()
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Uncategorized Dishes");
+            Console.WriteLine("--------------------");
+            Console.ResetColor();
 
             if (this.dishes.Count == 0)
             {
-                Console.WriteLine("Uncategorized Menu is empty.");
+                Console.ForegroundColor = ConsoleColor.Red;
+                //Console.WriteLine("--------------------");
+                //Console.WriteLine("Uncategorized Dishes");
+                //Console.WriteLine("--------------------");
+                Console.WriteLine("\nUncategorized Menu is empty.\n");
+                Console.ResetColor();
                 return;
             }
 
             for (int i = 0; i < this.dishes.Count; i++)
             {
-                Console.WriteLine("--------------------");
-                Console.WriteLine("Uncategorized Dishes");
-                Console.WriteLine("--------------------");
-                Console.WriteLine($"{i + 1}.{this.dishes[i].name}  {this.dishes[i].price}€  \n\nDescription: {this.dishes[i].description}");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"{i + 1}.{this.dishes[i].name}  {this.dishes[i].price} euros  \n\n{this.dishes[i].description}\n\n");
+                Console.ResetColor();
             }
 
         }
@@ -87,19 +108,28 @@ namespace MenuMasterLibrary
 
         public void ShowDessertList()
         {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("--------------------");
+            Console.WriteLine("      Desserts");
+            Console.WriteLine("--------------------");
+            Console.ResetColor();
 
-            if (this.dishes.Count == 0)
+            if (this.desserts.Count == 0)
             {
-                Console.WriteLine("Dessert Menu is empty.");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                //Console.WriteLine("--------------------");
+                //Console.WriteLine("      Desserts");
+                //Console.WriteLine("--------------------");
+                Console.WriteLine("\nDessert Menu is empty.\n");
+                Console.ResetColor();
                 return;
             }
 
             for (int i = 0; i < this.desserts.Count; i++)
             {
-                Console.WriteLine("--------------------");
-                Console.WriteLine("      Desserts");
-                Console.WriteLine("--------------------");
-                Console.WriteLine($"{i + 1}.{this.desserts[i].name}  {this.desserts[i].price}€  \n\nDescription: {this.desserts[i].description}");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"{i + 1}.{this.desserts[i].name}  {this.desserts[i].price} euros  \n\n{this.desserts[i].description}\n\n");
+                Console.ResetColor();
             }
 
         }
@@ -132,19 +162,29 @@ namespace MenuMasterLibrary
 
         public void ShowEntreeList()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("--------------------");
+            Console.WriteLine("      Entrees");
+            Console.WriteLine("--------------------");
+            Console.ResetColor();
 
-            if (this.dishes.Count == 0)
+            if (this.entrees.Count == 0)
             {
-                Console.WriteLine("Entree Menu is empty.");
+                Console.ForegroundColor = ConsoleColor.Green;
+                //Console.WriteLine("--------------------");
+                //Console.WriteLine("      Entrees");
+                //Console.WriteLine("--------------------");
+                Console.WriteLine("\nEntree Menu is empty.\n");
+                Console.ResetColor();
                 return;
             }
 
             for (int i = 0; i < this.desserts.Count; i++)
             {
-                Console.WriteLine("--------------------");
-                Console.WriteLine("      Entrees");
-                Console.WriteLine("--------------------");
-                Console.WriteLine($"{i + 1}.{this.entrees[i].name}  {this.entrees[i].price}€  \n\nDescription: {this.entrees[i].description}");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{i + 1}.{this.entrees[i].name}  {this.entrees[i].price} euros  \n\n{this.entrees[i].description}\n\n");
+                Console.ResetColor();
+                
             }
 
         }
@@ -178,19 +218,28 @@ namespace MenuMasterLibrary
 
         public void ShowMainCourseList()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("--------------------");
+            Console.WriteLine("   Main Courses");
+            Console.WriteLine("--------------------");
+            Console.ResetColor();
 
             if (this.mainCourses.Count == 0)
             {
-                Console.WriteLine("Main Course Menu is empty.");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                //Console.WriteLine("--------------------");
+                //Console.WriteLine("   Main Courses");
+                //Console.WriteLine("--------------------");
+                Console.WriteLine("\nMain Course Menu is empty.\n");
+                Console.ResetColor();
                 return;
             }
 
             for (int i = 0; i < this.mainCourses.Count; i++)
             {
-                Console.WriteLine("--------------------");
-                Console.WriteLine("   Main Courses");
-                Console.WriteLine("--------------------");
-                Console.WriteLine($"{i + 1}.{this.mainCourses[i].name}  {this.mainCourses[i].price}€  \n\nDescription: {this.mainCourses[i].description}");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"{i + 1}.{this.mainCourses[i].name}  {this.mainCourses[i].price}euros  \n\n{this.mainCourses[i].description}\n\n");
+                Console.ResetColor();
             }
 
         }

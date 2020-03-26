@@ -9,6 +9,7 @@ namespace MenuMasterConsoleUI
         {
 
             Menu mn = new Menu();
+            mn.FillMenusWithTestData();
             RestaurantUI mainMenu = new RestaurantUI(mn);
             mainMenu.InitializeMainMenu();
         }

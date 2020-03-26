@@ -25,12 +25,14 @@ namespace MenuMasterLibrary
             while (showMenu)
             {
                 showMenu = ShowMainMenu();
+                
             }
         }
 
         private bool ShowMainMenu()
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("--------------");
             Console.WriteLine("Restaurant Öl");
             Console.WriteLine("--------------");
@@ -40,6 +42,7 @@ namespace MenuMasterLibrary
 
 
             Console.WriteLine("0. Exit ");
+            Console.ResetColor();
             int selected = int.Parse(Console.ReadLine());
             Console.Clear();
             switch (selected)
@@ -56,11 +59,13 @@ namespace MenuMasterLibrary
                     Console.ReadKey();
                     break;
                 case 3:
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("\n Select Category for this dish:");
                     Console.WriteLine("1. Entrees");
                     Console.WriteLine("2. Main Course");
                     Console.WriteLine("3. Dessert");
                     Console.WriteLine("4. No Category");
+                    Console.ResetColor();
                     int select = int.Parse(Console.ReadLine());
                     Console.Clear();
                     switch (select)
