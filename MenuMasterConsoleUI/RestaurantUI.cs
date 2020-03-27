@@ -17,7 +17,7 @@ namespace MenuMasterLibrary
         private void AddNewDish()
         {
             Console.WriteLine("Select menu for this dish to be added in:");
-            PrintMenuNames();
+            PrintMenuName();
             int menuNumber = ReadInt("Your selestion:", 1, restaurant.MenuCount);
             Menu menu = restaurant.Menus[menuNumber - 1];
 
@@ -53,7 +53,7 @@ namespace MenuMasterLibrary
         private void RemoveDish()
         {
             Console.WriteLine("Select menu that you wish to delete a dish from:");
-            PrintMenuNames();
+            PrintMenuName();
             int menuNumber = ReadInt("Your Selection:", 1, restaurant.MenuCount);
             Menu menu = restaurant.Menus[menuNumber - 1];
 
@@ -68,7 +68,7 @@ namespace MenuMasterLibrary
             int categoryInt = ReadInt("Your Selection:",
                 1, Enum.GetNames(typeof(Menu.Category)).Length);
             Menu.Category category = (Menu.Category)categoryInt;
-            MenuCategory menuCategory = menu.Categories[categoryInt - 1]; 
+            MenuCategories menuCategory = menu.Categories[categoryInt - 1]; 
 
             if (menuCategory.Dishes.Count == 0)
             {
@@ -95,30 +95,40 @@ namespace MenuMasterLibrary
         private bool MainMenu()
         {
             Console.WriteLine();
-            Console.WriteLine("--------------------------------");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("    ----------------------------");
             Console.WriteLine("         Restaurant Manager       ");
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("1. Show Menu");
-            Console.WriteLine("2. Add new Menu");
-            Console.WriteLine("3. Add Dish");
-            Console.WriteLine("4. Remove Dish");
-            Console.WriteLine("0. Exit");
-            Console.WriteLine("Choose action:");
+            Console.WriteLine("    ----------------------------");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("          1. Show Menu");
+            Console.WriteLine("          2. Add new Menu");
+            Console.WriteLine("          3. Remove Menu");
+            Console.WriteLine("          4. Add Dish");
+            Console.WriteLine("          5. Remove Dish");
+            Console.WriteLine("          0. Exit");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("         Choose action:");
+            Console.ResetColor();
 
             string valinta = Console.ReadLine();
             Console.Clear();
             switch (valinta)
             {
                 case "1":
-                    PrintMenuToConcole();
+                    PrintMenu();
                     break;
                 case "2":
-                    AddNewMenu();
+                    AddMenu();
                     break;
                 case "3":
-                    AddNewDish();
+                    RemoveMenu();
                     break;
                 case "4":
+                    AddNewDish();
+                    break;
+                case "5":
                     RemoveDish();
                     break;
 
@@ -137,7 +147,7 @@ namespace MenuMasterLibrary
             return true;
         }
 
-        public void PrintMenuNames()
+        public void PrintMenuName()
         {
             int i = 1;
             foreach (var menu in restaurant.Menus)
@@ -188,7 +198,7 @@ namespace MenuMasterLibrary
             return value;
         }
 
-        public Menu SelectMenu()
+        public Menu ChooseMenu()
         {
             if (restaurant.MenuCount == 0)
             {
@@ -197,13 +207,13 @@ namespace MenuMasterLibrary
             else
             {
                 Console.WriteLine("Select menu you wish to display:");
-                PrintMenuNames();
+                PrintMenuName();
                 int number = ReadInt("Your selection:", 1, restaurant.MenuCount);
                 return restaurant.Menus[number - 1];
             }
         }
 
-        public Menu AddNewMenu()
+        public Menu AddMenu()
         {
             Console.WriteLine("Write menu description:");
             string description = Console.ReadLine();
@@ -212,9 +222,19 @@ namespace MenuMasterLibrary
             return menu;
         }
 
-        public void PrintMenuToConcole()
+        private void RemoveMenu()
         {
-            Menu menu = SelectMenu();
+            Console.WriteLine("Select menu that you wish to delete:");
+            PrintMenuName();
+            int menuNumber = ReadInt("Your Selection:", 1, restaurant.MenuCount);
+            Menu menu = restaurant.Menus[menuNumber - 1];
+
+            restaurant.Menus.Remove(menu);
+        }
+
+        public void PrintMenu()
+        {
+            Menu menu = ChooseMenu();
 
             Console.WriteLine("Select order for menu items:");
             Console.WriteLine("1. Default");
@@ -235,7 +255,7 @@ namespace MenuMasterLibrary
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"---------- {category.Name} ----------");
                 Console.ResetColor();
-                List<Dish> dishes = category.GetDishes((MenuCategory.SortingMode)sort);
+                List<Dish> dishes = category.GetDishes((MenuCategories.SortingMode)sort);
                 foreach (Dish dish in dishes)
                 {
                     PrintDish(dish);

@@ -7,7 +7,7 @@ namespace MenuMasterLibrary
     public class Menu
     {
         private string description;
-        private List<MenuCategory> categories = new List<MenuCategory>();
+        private List<MenuCategories> categories = new List<MenuCategories>();
 
         public string Description
         {
@@ -15,7 +15,7 @@ namespace MenuMasterLibrary
         }
 
  
-        public List<MenuCategory> Categories
+        public List<MenuCategories> Categories
         {
             get { return categories; }
         }
@@ -45,15 +45,15 @@ namespace MenuMasterLibrary
         public Menu(string description)
         {
             this.description = description;
-            categories.Add(new MenuCategory("Entrees")); 
-            categories.Add(new MenuCategory("Maincourses")); 
-            categories.Add(new MenuCategory("Dessert"));
-            categories.Add(new MenuCategory("Uncategorized"));
+            categories.Add(new MenuCategories("Entrees")); 
+            categories.Add(new MenuCategories("Main courses")); 
+            categories.Add(new MenuCategories("Dessert"));
+            categories.Add(new MenuCategories("Uncategorized"));
         }
 
         public List<string> GetNamesOfDishes(Category category)
         {
-            MenuCategory dishCategory = Categories[(int)category];
+            MenuCategories dishCategory = Categories[(int)category];
             List<string> list = new List<string>();
             foreach (var dish in dishCategory.Dishes)
             {
@@ -85,7 +85,7 @@ namespace MenuMasterLibrary
         public List<string> GetNamesOfCategories()
         {
             List<string> list = new List<string>();
-            foreach (MenuCategory category in Categories)
+            foreach (MenuCategories category in Categories)
             {
                 list.Add(category.Name);
             }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MenuMasterLibrary
 {
-	public class MenuCategory
+	public class MenuCategories
 	{
 		private List<Dish> dishes = new List<Dish>();
 
@@ -24,7 +24,7 @@ namespace MenuMasterLibrary
 			ByPrice
 		}
 
-		public MenuCategory(string name)
+		public MenuCategories(string name)
 		{
 			this.Name = name;
 		}
@@ -39,22 +39,22 @@ namespace MenuMasterLibrary
 			switch (sorting)
 			{
 				case SortingMode.ByName:
-					return GetDishesSortedByName();
+					return SortDishesByName();
 				case SortingMode.ByPrice:
-					return GetDishesSortedByPrice();
+					return SortDishesByPrice();
 				default:
 					return Dishes;
 			}
 		}
 
-		public List<Dish> GetDishesSortedByName()
+		public List<Dish> SortDishesByName()
 		{
 			List<Dish> newList = new List<Dish>(Dishes);
 			newList.Sort((a, b) => a.Name.CompareTo(b.Name));
 			return newList;
 		}
 
-		public List<Dish> GetDishesSortedByPrice()
+		public List<Dish> SortDishesByPrice()
 		{
 			List<Dish> newList = new List<Dish>(Dishes);
 			newList.Sort((a, b) => a.Price.CompareTo(b.Price));
