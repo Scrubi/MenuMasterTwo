@@ -6,27 +6,44 @@ namespace MenuMasterLibrary
 {
     public class Dish
     {
-        public string name;
-        public double price;
-        public string description;
+        private string name;
 
-       
 
-       
-
-        public Dish(string name, double price, string description)
+        public string Name
         {
-            this.name = name;
-            this.price = price;
+            get
+            {
+                return name;
+            }
+            set
+            {
+
+                name = value;
+            }
+
+        }
+
+        protected string description;
+
+       
+        public virtual string Description
+        {
+            get { return description; }
+        }
+
+        private double price;
+
+       
+        public double Price
+        {
+            get { return price; }
+        }
+
+        public Dish(string name, string description, double price)
+        {
+            this.Name = name;
             this.description = description;
+            this.price = price;
         }
-
-        public Dish()
-        {
-        }
-        
-        
-
     }
-    
 }

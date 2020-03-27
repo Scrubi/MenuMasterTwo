@@ -8,10 +8,13 @@ namespace MenuMasterConsoleUI
         static void Main(string[] args)
         {
 
-            Menu mn = new Menu();
-            mn.FillMenusWithTestData();
-            RestaurantUI mainMenu = new RestaurantUI(mn);
-            mainMenu.InitializeMainMenu();
+            Restaurant restaurant = new Restaurant("Öl", "Aleksanterinkatu 19",
+                new RestaurantManager("Jani", "Soronen", "041 999 333", "jani@restaurantol.com"));
+
+            restaurant.AddMenuTestData();
+
+            RestaurantUI ui = new RestaurantUI(restaurant);
+            ui.ShowMenu();
         }
     }
 }
